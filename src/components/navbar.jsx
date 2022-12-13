@@ -16,7 +16,7 @@ class Navbar extends React.Component {
       activePage: "Home",
       scrollValue: 0,
       button: false,
-      activeNav: false
+      activeNav: true,
     };
   }
 
@@ -36,23 +36,14 @@ class Navbar extends React.Component {
 
   changeActivePage = (pageName) => {
     this.setState({
-      activeNav: false
-    })
-    this.setState({
       activePage: pageName,
     });
   };
 
-  handleNav = () => {
-    this.setState({
-      activeNav: false
-    })
-  }
-
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
     window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("scroll", this.handleNav);
+    // window.addEventListener("scroll", this.handleNav);
     // window.addEventListener("click",this.handleNav);
     Aos.init({
       duration: 500,
@@ -64,12 +55,12 @@ class Navbar extends React.Component {
   componentWillUnmount() {
     window.addEventListener("resize", this.handleResize);
     window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("scroll", this.handleNav);
+    // window.addEventListener("scroll", this.handleNav);
     // window.addEventListener("click",this.handleNav);
   }
 
   buttonClick = () => {
-    // this.setState({activeNav: true});
+    this.setState({activeNav: !this.state.activeNav});
     this.state.activePage === "Home" ?
     this.state.button === true ?
     this.setState({button: false}) :
@@ -85,9 +76,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    // console.log(this.state.activePage);
-    // console.log(this.state.button);
-    console.log(this.state.activeNav);
     return (
       <>
         <div
@@ -109,7 +97,7 @@ class Navbar extends React.Component {
                   aria-label='Toggle navigation'
                 >
                   <span className='hamburger-icon'>
-                    <i className='fa fa-bars' aria-hidden='true'></i>
+                    <i className={`${this.state.activeNav === true ? 'fa fa-bars' : 'fa fa-times'}`} aria-hidden='true'></i>
                   </span>
                 </button>
                 <div className='navbar-collapse collapse'
@@ -117,7 +105,7 @@ class Navbar extends React.Component {
                   <ul className='navbar-nav mr-auto'>
                     {navItems.map((item, index) => {
                       return item.length < 2 ? (
-                        <li key={index} className='nav-item'>
+                        <li key={item.id} className='nav-item'>
                           <Link className='nav-link' to={item[0].url} onClick={() => this.changeActivePage(item[0].title)}>
                             {item[0].title}
                           </Link>
@@ -131,7 +119,7 @@ class Navbar extends React.Component {
                               {item.map((item, index) => {
                                 return (
                                   <>
-                                    <Link className='dropdown-item' to={item.url} onClick={() => this.changeActivePage(item.title)}>
+                                    <Link  key={item.id} className='dropdown-item' to={item.url} onClick={() => this.changeActivePage(item.title)}>
                                       {item.title}
                                     </Link>
                                   </>
@@ -151,7 +139,7 @@ class Navbar extends React.Component {
                   <ul>
                     {navItems.map((item, index) => {
                       return item.length < 2 ? (
-                        <li key={index} className={item[0].title.toLowerCase() === this.state.page && "nav-active"} style={{ padding: "0.5rem" }}>
+                        <li key={item.id} className={item[0].title.toLowerCase() === this.state.page && "nav-active"} style={{ padding: "0.5rem" }}>
                           <Link className='LinkesNav' to={item[0].url} onClick={() => this.changeActivePage(item[0].title)}>
                             {item[0].title}
                           </Link>
@@ -161,11 +149,11 @@ class Navbar extends React.Component {
                             <Link to={"#"} className='nav-link LinkesNavDropdown dropdown-toggle' id='dropdownMenuButton' data-toggle='dropdown' onClick={() => this.changeActivePage(item[0].title)}>
                               {item[0].title} <i className='bi bi-arrow-down'></i>
                             </Link>
-                            <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+                            <div className='dropdown-menu' aria-labelledby='dropdownMenuButton' >
                               {item.map((item, index) => {
                                 return (
                                   <>
-                                    <Link className='dropdown-item' to={item.url} onClick={() => this.changeActivePage(item.title)}>
+                                    <Link  key={item.id} className='dropdown-item' to={item.url} onClick={() => this.changeActivePage(item.title)}>
                                       {item.title}
                                     </Link>
                                   </>

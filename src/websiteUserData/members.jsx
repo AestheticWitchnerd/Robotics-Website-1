@@ -139,15 +139,6 @@ export const coreMemebersDetails = [
     github: "#",
     field: ["Error Control in Digital Communication", "."],
   },
-
-  {
-    name: "Navdeep Singh Rathore",
-    role: "Core-Coordinator",
-    image: "members/coordinator/Navdeep Rathore.jpg",
-    linkedin: "https://www.linkedin.com/in/navdeep-singh-rathore-869245196/",
-    github: "#",
-    field: ["Web development, Programming", "."],
-  },
   {
     name: "Mohd Nomaan",
     role: "Core-Coordinator",
@@ -155,15 +146,6 @@ export const coreMemebersDetails = [
     linkedin: "https://www.linkedin.com/in/mohd-nomaan-092231196",
     github: "#",
     field: ["IOT, Machine Learning, ", "C++ & Python Programming"],
-  },
-
-  {
-    name: "Ritesh Kumar",
-    role: "Core-Coordinator",
-    image: "members/coordinator/Ritesh Kumar.jpg",
-    linkedin: "https://www.linkedin.com/in/ritcode",
-    github: "https://github.com/ritcode",
-    field: ["Web, Blockchain, Cloud", "."],
   },
 ];
 
@@ -180,7 +162,7 @@ export const executiveMemebersDetails = [
     image: "members/Executives/vanshika.jpeg",
     linkedin: "https://www.linkedin.com/in/vanshika-gyanchandani-16216422a",
     github: "https://github.com/Vanshi2504ka",
-    field: ["Web development,Photoshop,C,Arduino"],
+    field: ["Web development","Photoshop,C,arduino","Competitive Programming(C++)"],
   },
   {
     name: "Aakash Tiwari",
@@ -202,7 +184,7 @@ export const executiveMemebersDetails = [
     linkedin: "https://www.linkedin.com/in/mahima-gaur-b862b122a",
 
     github: "https://github.com/Mahima0111",
-    field: ["WebD backend , python "],
+    field: ["Flutter Developer ,Arduino Uno , python ,C++ "],
   },
   {
     name: "Akanksha Sharma ",
